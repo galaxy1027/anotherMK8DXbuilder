@@ -23,7 +23,6 @@ const data = [
   { name: "Mini-Turbo", value: 3.25 },
   { name: "Invincibility", value: 2.5 },
 ];
-
 function StatsGraph() {
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -32,7 +31,7 @@ function StatsGraph() {
         <BarChart width={500} height={500} data={data} layout="vertical">
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" domain={[0, 6]} tickCount={7} />
-          <YAxis dataKey="name" type="category" />
+          <YAxis dataKey="name" type="category" width={100} />
           <Tooltip />
           <Bar dataKey="value" fill="#8884d8" />
         </BarChart>
