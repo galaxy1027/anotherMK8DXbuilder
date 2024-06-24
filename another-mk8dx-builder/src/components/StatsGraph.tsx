@@ -10,46 +10,31 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Speed (Ground)", value: 10 },
-  { name: "Speed (Water)", value: 8 },
-  { name: "Speed (Air)", value: 8 },
-  { name: "Speed (Anti-Gravity)", value: 12 },
-  { name: "Acceleration", value: 16 },
-  { name: "Weight", value: 8 },
-  { name: "Handling (Ground)", value: 14 },
-  { name: "Handling (Water)", value: 12 },
-  { name: "Handling (Air)", value: 10 },
-  { name: "Handling (Anti-Gravity)", value: 12 },
-  { name: "Mini-Turbo", value: 16 },
-  { name: "Invincibility", value: 12 },
+  { name: "Speed (Ground)", value: 3.5 },
+  { name: "Speed (Water)", value: 2.25 },
+  { name: "Speed (Air)", value: 5.5 },
+  { name: "Speed (Anti-Gravity)", value: 4.25 },
+  { name: "Acceleration", value: 3.5 },
+  { name: "Weight", value: 3 },
+  { name: "Handling (Ground)", value: 1.25 },
+  { name: "Handling (Water)", value: 1 },
+  { name: "Handling (Air)", value: 1.5 },
+  { name: "Handling (Anti-Gravity)", value: 4.75 },
+  { name: "Mini-Turbo", value: 3.25 },
+  { name: "Invincibility", value: 2.5 },
 ];
 
 function StatsGraph() {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <div className="chart">
+      <div className="Chart">
         <h1>Build Stats</h1>
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey="name"
-            scale="point"
-            padding={{ left: 10, right: 10 }}
-          />
-          <YAxis domain={[0, 20]} />
-          <Tooltip />
+        <BarChart width={500} height={500} data={data} layout="vertical">
           <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="value" fill="#8884d8" background={{ fill: "#eee" }} />
+          <XAxis type="number" domain={[0, 6]} tickCount={7} />
+          <YAxis dataKey="name" type="category" />
+          <Tooltip />
+          <Bar dataKey="value" fill="#8884d8" />
         </BarChart>
       </div>
     </ResponsiveContainer>
